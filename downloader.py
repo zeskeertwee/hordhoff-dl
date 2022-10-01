@@ -31,7 +31,6 @@ for i in tqdm (range(page_count_start, page_count_end+1), desc="Downloading...")
     file = open(dir_name + "/" + str(i) + ".jpg", "wb")
     data = requests.get(base_url + "/" + str(i) + ".jpg")
     file.write(data.content)
-    time.sleep(random.randrange(500, 2000)/1000.0)
     pass
 
 os.system("python3 ./stitch.py " + dir_name + "/ " + str(page_count_end) + " " + str(page_count_start))
